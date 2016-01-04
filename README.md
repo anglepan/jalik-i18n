@@ -18,7 +18,7 @@ i18n.init({language: 'fr'});
 The simplest use is to call the `t()` method.
 
 ```js
-console.log(t("Hello World"));
+console.log(i18n.t("Hello World"));
 ```
 
 You can also use the helper :
@@ -34,7 +34,7 @@ If your sentence contains variables, you just have to pass them as arguments of 
 ```js
 var name = 'Karl';
 var day = 'Monday';
-console.log(t("Hello %s, we are %s", name, day));
+console.log(i18n.t("Hello %s, we are %s", name, day));
 ```
 ```html
 {{t "Hello %s, we are %s" name day}}
