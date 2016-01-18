@@ -1,6 +1,6 @@
 Package.describe({
     name: 'jalik:i18n',
-    version: '0.1.0',
+    version: '0.1.1',
     author: 'karl.stein.pro@gmail.com',
     summary: 'Simple and easy translation engine',
     homepage: 'https://github.com/jalik/jalik-i18n',

@@ -204,51 +204,41 @@ i18n = {
 
     /**
      * Returns the translated string if count equals zero
-     * @param count
-     * @param text
      * @return {string}
      */
-    t0: function (count, text) {
-        return count === 0 ? i18n.t(text) : '';
+    t0: function () {
+        var args = Array.prototype.slice.call(arguments);
+        var count = args.shift();
+        return count === 0 ? i18n.t.apply(this, args) : '';
     },
 
     /**
      * Returns the translated string if count equals (-)1
-     * @param count
-     * @param text
      * @return {string}
      */
-    t1: function (count, text) {
-        return count === 1 || count === -1 ? i18n.t(text) : '';
+    t1: function () {
+        var args = Array.prototype.slice.call(arguments);
+        var count = args.shift();
+        return count === 1 || count === -1 ? i18n.t.apply(this, args) : '';
     },
 
     /**
      * Returns the translated string if count is greater than 1 or lesser than -1
-     * @param count
-     * @param text
      * @return {string}
      */
-    tn: function (count, text) {
-        if (count > 1 || count < -1) {
-            var args = [];
-            for (var i = 1; i < arguments.length; i += 1) {
-                args.push(arguments[i]);
-            }
-            return i18n.t.apply(this, args);
-        }
-        return '';
+    tn: function () {
+        var args = Array.prototype.slice.call(arguments);
+        var count = args.shift();
+        return count > 1 || count < -1 ? i18n.t.apply(this, args) : '';
     }
 };
 
 
 if (Meteor.isClient) {
     var fn = function (fun, arguments) {
-        var args = [];
-        var options = arguments[arguments.length - 1].hash;
+        var args = Array.prototype.slice.call(arguments);
+        var options = args.pop();
 
-        for (var i = 0; i < arguments.length - 1; i += 1) {
-            args.push(arguments[i]);
-        }
         if (options.domain) {
             args.push(options.domain);
         }
