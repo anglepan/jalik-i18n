@@ -22,32 +22,12 @@
  * SOFTWARE.
  */
 
-Package.describe({
-    name: 'jalik:i18n',
-    version: '0.2.0',
-    author: 'karl.stein.pro@gmail.com',
-    summary: 'Internationalization for Meteor apps',
-    homepage: 'https://github.com/jalik/jalik-i18n',
-    git: 'https://github.com/jalik/jalik-i18n.git',
-    documentation: 'README.md',
-    license: 'MIT'
-});
+import {Mongo} from 'meteor/mongo';
 
-Package.onUse(function (api) {
-    api.versionsFrom('1.3.5.1');
-    api.use('check@1.2.1');
-    api.use('ecmascript@0.4.3');
-    api.use('mongo@1.1.7');
-    api.use('reactive-var');
-    // api.use('templating@1.1.4', 'client');
-    api.use('tracker@1.0.13', 'client');
-    api.use('underscore@1.0.8');
-    api.mainModule('i18n.js');
-});
 
-Package.onTest(function (api) {
-    api.use('ecmascript@0.4.3');
-    api.use('practicalmeteor:mocha');
-    api.use('jalik:i18n');
-    api.mainModule('i18n-tests.js');
-});
+/**
+ * The translations collection
+ * @type {Mongo.Collection}
+ */
+export const Translations = new Mongo.Collection(null);
+export default Translations;
