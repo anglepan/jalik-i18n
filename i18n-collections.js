@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 Karl STEIN
+ * Copyright (c) 2017 Karl STEIN
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,4 +30,3 @@ import {Mongo} from 'meteor/mongo';
  * @type {Mongo.Collection}
  */
 export const Translations = new Mongo.Collection(null);
-export default Translations;
